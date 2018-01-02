@@ -6,7 +6,7 @@
     android:layout_marginEnd="@dimen/activity_horizontal_margin"
     android:layout_marginStart="@dimen/activity_horizontal_margin"
     android:layout_marginTop="@dimen/activity_vertical_margin"
-    tools:context="io.github.ivero.origamitutorials.fragment.AboutFragment">
+    tools:context="io.github.veroz.origamitutorials.fragment.AboutFragment">
 
     <!-- TODO: Update about fragment layout -->
     <LinearLayout

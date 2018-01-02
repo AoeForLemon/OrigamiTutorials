@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="io.github.ivero.origamitutorials.MainActivity">
+    tools:context="io.github.veroz.origamitutorials.MainActivity">
 
     <FrameLayout
         android:id="@+id/content"
