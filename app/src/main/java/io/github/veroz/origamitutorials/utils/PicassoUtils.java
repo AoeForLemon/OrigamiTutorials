@@ -15,16 +15,15 @@ public class PicassoUtils {
 
         File file = new File(context.getCacheDir() + "/picasso-cache");
         Log.d("cachePath -->> ", file.getPath());
-        File[] files = file.listFiles();
-        Log.d("cacheLength -->> ", String.valueOf(files.length));
-
-        for (File cache : files) {
-
-            if (cache.isFile()) {
-                Log.d("cacheDelete -->> ", cache.getName());
-                cache.delete();
+        if (file.exists() && file.isDirectory()) {
+            File[] files = file.listFiles();
+            Log.d("cacheLength -->> ", String.valueOf(files.length));
+            for (File cache : files) {
+                if (cache.isFile()) {
+                    Log.d("cacheDelete -->> ", cache.getName());
+                    cache.delete();
+                }
             }
-
         }
 
     }
