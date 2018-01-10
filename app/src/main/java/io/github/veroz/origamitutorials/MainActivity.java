@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import io.github.veroz.origamitutorials.fragment.AboutFragment;
 import io.github.veroz.origamitutorials.fragment.PictureFragment;
@@ -94,6 +95,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         transaction.show(fragments[index]).commitAllowingStateLoss();
+    }
+
+    private long firstTime = 0;
+
+    @Override
+    public void onBackPressed() {
+
+        long secondTime = System.currentTimeMillis();
+
+        if (secondTime - firstTime > 2000) {
+            Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+            firstTime = secondTime;
+        } else {
+            finish();
+            System.exit(0);
+        }
+
     }
 
 }
