@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import io.github.veroz.origamitutorials.BuildConfig;
 import io.github.veroz.origamitutorials.R;
 import io.github.veroz.origamitutorials.model.OrigamiBean;
 
@@ -65,6 +66,7 @@ public class OrigamiArrayAdapter extends BaseAdapter {
         viewHolder.textView1.setText(origamiBean.getName());
         viewHolder.textView2.setText(origamiBean.getDescription());
         Picasso.with(context).load(origamiBean.getPic()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(viewHolder.imageView);
+        Picasso.with(context).setIndicatorsEnabled(BuildConfig.DEBUG);
 
         return viewHolder.rootView;
     }
