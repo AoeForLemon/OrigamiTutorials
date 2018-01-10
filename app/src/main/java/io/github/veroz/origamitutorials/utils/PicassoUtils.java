@@ -18,11 +18,11 @@ public class PicassoUtils {
         File[] files = file.listFiles();
         Log.d("cacheLength -->> ", String.valueOf(files.length));
 
-        for (File photo : files) {
+        for (File cache : files) {
 
-            if (photo.isFile()) {
-                Log.d("cacheDelete -->> ", photo.getName());
-                photo.delete();
+            if (cache.isFile()) {
+                Log.d("cacheDelete -->> ", cache.getName());
+                cache.delete();
             }
 
         }
