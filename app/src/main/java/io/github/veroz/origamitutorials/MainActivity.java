@@ -13,6 +13,7 @@ import android.widget.Toast;
 import io.github.veroz.origamitutorials.fragment.AboutFragment;
 import io.github.veroz.origamitutorials.fragment.PictureFragment;
 import io.github.veroz.origamitutorials.fragment.VideoFragment;
+import io.github.veroz.origamitutorials.utils.PicassoUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
             firstTime = secondTime;
         } else {
+            PicassoUtils.clearCache(getApplicationContext());
             finish();
             System.exit(0);
         }
