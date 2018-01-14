@@ -7,4 +7,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment"><u><b>Hello blank fragment</b></u></string>
     <string name="textview">TextView</string>
+
+    <!-- View Picture. -->
+    <string name="title_activity_view_picture">View Picture</string>
+    <string name="dummy_button">Dummy Button</string>
+    <!-- View Picture. -->
 </resources>

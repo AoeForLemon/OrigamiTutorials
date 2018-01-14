@@ -1,7 +1,9 @@
 package io.github.veroz.origamitutorials.fragment;
 
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,10 +25,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.veroz.origamitutorials.MainActivity;
 import io.github.veroz.origamitutorials.R;
 import io.github.veroz.origamitutorials.adapter.OrigamiArrayAdapter;
 import io.github.veroz.origamitutorials.constant.JsonConstants;
 import io.github.veroz.origamitutorials.model.OrigamiBean;
+import io.github.veroz.origamitutorials.ui.activity.PlayVideoActivity;
+import io.github.veroz.origamitutorials.ui.activity.ViewPictureActivity;
 import io.github.veroz.origamitutorials.utils.HttpHandler;
 import io.github.veroz.origamitutorials.utils.InternetConnection;
 
@@ -72,6 +77,22 @@ public class VideoFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getContext(), new StringBuilder().append("id:" + origamiBeanArrayList.get(position).getId()).append("\n").append("name:" + origamiBeanArrayList.get(position).getName()).append("\n").append("isImg:" + origamiBeanArrayList.get(position).getIsImg()).append("\n").append("url:" + origamiBeanArrayList.get(position).getUrl()).append("\n").append("pic:" + origamiBeanArrayList.get(position).getPic()).append("\n").append("description:" + origamiBeanArrayList.get(position).getDescription()).append("\n").append("details:size:" + origamiBeanArrayList.get(position).getDetails().getSize()).append("\n").append("details:date:" + origamiBeanArrayList.get(position).getDetails().getDate()), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.mainActivity, PlayVideoActivity.class);
+                intent.putExtra("url", origamiBeanArrayList.get(position).getUrl());
+                startActivity(intent);
+                ((Activity) MainActivity.mainActivity).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.mainActivity, ViewPictureActivity.class);
+                intent.putExtra("name", origamiBeanArrayList.get(position).getName());
+                intent.putExtra("pic", origamiBeanArrayList.get(position).getPic());
+                startActivity(intent);
+                ((Activity) MainActivity.mainActivity).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                return true;
             }
         });
 

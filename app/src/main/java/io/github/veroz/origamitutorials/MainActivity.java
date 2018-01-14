@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout fl;
     private Fragment[] fragments;
     private int lastShowFragment = 0;
-
+    public static MainActivity mainActivity;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         initFragments();
+        mainActivity=this;
     }
 
     private void initFragments() {
