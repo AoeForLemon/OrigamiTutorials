@@ -32,6 +32,7 @@ public class AsyncImageLoader {
             }
         }
         final Handler handler = new Handler() {
+            @Override
             public void handleMessage(Message message) {
                 imageCallback.imageLoaded((Drawable) message.obj, imageUrl);
             }
